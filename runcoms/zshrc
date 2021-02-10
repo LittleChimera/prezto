@@ -11,3 +11,26 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export PATH=$PATH:~/bin
+
+# brew amd64
+export PATH=$PATH:/opt/homebrew/bin
+
+# go
+export PATH=$PATH:~/go/bin
+
+# code insider workaround
+alias code=code-insiders
+
+# kubernetes
+alias k=kubectl
+source <(kubectl completion zsh)
+source <(kustomize completion zsh)
+
+## krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+## kube-ps1
+source ~/scripts/kube-ps1/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
+KUBE_PS1_SYMBOL_USE_IMG=true
